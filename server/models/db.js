@@ -1,6 +1,7 @@
 const { Pool, Client } = require('pg');
+require('dotenv').config();
 // get PG uri from RDS
-const PG_URI = 'postgresql://urladmin:QjJ9ChR2DNfmvXNkWOHe@urldb.cmd5f7fuanao.us-west-2.rds.amazonaws.com:5432/postgres';
+const PG_URI = process.env.PG_URI;
 
 // create a new pool using the connection string above
 const pool = new Pool({

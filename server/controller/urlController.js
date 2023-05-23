@@ -9,8 +9,7 @@ const hashURL = (url) => {
   const hash = crypto.createHash('sha256').update(url).digest('hex');
   return hash.substring(0, 8);
 };
-// console.log(hashURL("https://www.tutorialspoint.com/sql/sql-insert-query.htm"))
-// 90aef866
+
 
 // geturl and storeurl
 urlController.getUrl = (req, res, next) => {
@@ -50,14 +49,12 @@ urlController.getUrl = (req, res, next) => {
     })
     .catch(error => {
       console.log(`Error in urlController.getUrl middleware: ${error}`);
-      return next();
+      return next(error);
     });
 };
 
 urlController.shortToLong = (req, res, next) => {
-  // get request in DB to get long from short
-  // grab shortUrl from the route. 
-  // "0753e9bc"
+
   console.log('req params', req.params);
   const {shortUrl} = req.params;
   const shortUrlQuery = 
@@ -71,11 +68,13 @@ urlController.shortToLong = (req, res, next) => {
       short_url = $1
     `;
   db.query(shortUrlQuery, [shortUrl]).then(response => {
-    // res.status(200).redirect(whateverurl)
-    console.log('this is the long response from querying short', response);
-    res.locals.longUrl = response.rows[0];
+    res.locals.longUrl = response.rows[0]['long_url'];
     return next();
-  });
+  })
+    .catch(error => {
+      console.log(`Error in urlController.shortToLong middleware: ${error}`);
+      return next(error);
+    });
 };
 
 
