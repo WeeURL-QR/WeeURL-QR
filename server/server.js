@@ -19,7 +19,8 @@ app.use(express.urlencoded({ extended: true}));
 app.use(express.static(path.resolve(__dirname, '../client')));
 
 // router logic is implemented below, using middleware from controllers folder
-
+// catch all for api to send to api routes
+app.use('/api', apiRouter)
 
 // catch all route handling for requests to unknown routers
 app.use((req,res) => {
