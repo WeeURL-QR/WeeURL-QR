@@ -20,11 +20,21 @@ body {
 }
 
 .logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
   font-weight: bold;
   font-size: 20px;
   color: #fff;
-  text-decoration: none;
+
+  #logo {
+    width: 30px; /* Adjust the width as needed */
+    height: 30px; /* Adjust the height as needed */
+    margin-right: 0px; /* Adjust the margin as needed */
+  }
 }
+
 
 .logo:hover {
   opacity: 0.8;
