@@ -44,7 +44,7 @@ module.exports = {
         }
       },
       {
-        test: /\.css$/i,
+        test: /\.scss$/i,
         exclude: /node_modules/,
         use: [  // Creates `style` nodes from JS strings
           'style-loader',
@@ -53,6 +53,10 @@ module.exports = {
           // Compiles Sass to CSS
           'sass-loader',
         ]
+      },
+      {
+        test: /\.(png|jpg)$/,
+        loader: 'url-loader'
       }
     ]
   },
