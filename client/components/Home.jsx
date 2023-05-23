@@ -10,7 +10,7 @@ import Input from './Input.jsx'
  function Home(){
 
     const [oldUrl, setOldUrl] = useState("")
-    const [newUrl, setNewUrl] = useState(null)
+    const [newUrl, setNewUrl] = useState(true)
 
     function generate(e){
         fetch('/api/input', {
