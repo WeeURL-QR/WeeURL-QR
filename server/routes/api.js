@@ -11,7 +11,7 @@ router.post('/getURL', urlController.getUrl, (req, res) => {
 })
 
 // get request for shortened to get long url
-router.get('/:?', urlController.shortToLong, (req, res) => {
+router.get('/:shortUrl', urlController.shortToLong, (req, res) => {
     // relocate to new new long url in response. res.redirect?
     res.status(200).redirect(res.locals.longUrl)
 })

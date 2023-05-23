@@ -56,7 +56,10 @@ urlController.getUrl = (req, res, next) => {
 
 urlController.shortToLong = (req, res, next) => {
     // get request in DB to get long from short
-    const {shortUrl} = req.body
+    // grab shortUrl from the route. 
+    // "0753e9bc"
+    console.log("req params", req.params);
+    const {shortUrl} = req.params;
     const shortUrlQuery = 
     `SELECT
       long_url
