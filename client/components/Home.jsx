@@ -13,7 +13,7 @@ import Input from './Input.jsx'
     const [newUrl, setNewUrl] = useState(null)
 
     function generate(e){
-        fetch('/input', {
+        fetch('/api/input', {
             method:'POST',
             headers:{
                 'Content-Type':'Application/JSON'
