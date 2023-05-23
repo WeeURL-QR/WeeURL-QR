@@ -1,5 +1,5 @@
-const HtmlWebpackPlugin = require('html-webpack-plugin')
-const path = require('path')
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const path = require('path');
 
 
 module.exports = {
@@ -27,7 +27,8 @@ module.exports = {
     },
     proxy: {
       '/api': 'http://localhost:3000',
-    }
+    },
+    historyApiFallback:true,
   },
   
   module: {
@@ -43,14 +44,14 @@ module.exports = {
         }
       },
       {
-        s: /\.css$/i,
+        test: /\.css$/i,
         exclude: /node_modules/,
         use: [  // Creates `style` nodes from JS strings
-          "style-loader",
+          'style-loader',
           // Translates CSS into CommonJS
-          "css-loader",
+          'css-loader',
           // Compiles Sass to CSS
-          "sass-loader",
+          'sass-loader',
         ]
       }
     ]
