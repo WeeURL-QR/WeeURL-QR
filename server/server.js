@@ -1,5 +1,3 @@
-// all router logic in a single file. 
-// route to here, middleware/controllers
 const express = require('express');
 const path = require('path');
 const app = express();

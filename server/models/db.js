@@ -1,11 +1,9 @@
-require('dotenv').config();
-// require in Pool from pg
-const Pool = require('pg')
+const { Pool } = require('pg')
 // get PG uri from RDS
-const URI = process.env.PG_URI;
+const PG_URI = 'postgresql://urladmin:QjJ9ChR2DNfmvXNkWOHe@urldb.cmd5f7fuanao.us-west-2.rds.amazonaws.com:5432/postgres';
 // create a new pool using the connection string above
 const pool = new Pool({
-    connectionString: URI
+    connectionString: PG_URI
   });
 
 // We export an object that contains a property called query.
