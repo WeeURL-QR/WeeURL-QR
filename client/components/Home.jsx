@@ -7,7 +7,7 @@ import Input from './Input.jsx';
 
 function Home() {
     const [longUrl, setlongUrl] = useState('');
-    const [newUrl, setNewUrl] = useState(null);
+    const [newUrl, setNewUrl] = useState('');
 
     function generate(e) {
         fetch('/api/getURL', {
@@ -18,10 +18,13 @@ function Home() {
             body: JSON.stringify({ longUrl: longUrl }),
         })
             .then((data) => {
-                data.json();
+                return data.json();
             })
             .then((data) => {
-                setNewUrl(data);
+                console.log(data);
+                // we would want to set new url to wee url - qr, no /api
+                setNewUrl('localhost:8080/api/'+ data);
+                console.log('newUrl: ', newUrl);
             });
     }
 
@@ -66,7 +69,7 @@ function Home() {
                     generate={generate}
                 />
             </div>
-            {newUrl && (
+            {(newUrl !== '') && (
                 <div className="Output">
                     <Output newUrl={newUrl} />
                     <QRCodeCanvas id="QR" value={newUrl} />
