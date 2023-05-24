@@ -6,7 +6,7 @@ const router = express.Router();
 
 // have method to check if it exists in database
 // if returns false, then go to adding it
-router.post('/getURL', urlController.getUrl, (req, res) => {
+router.post('/api/getURL', urlController.getUrl, (req, res) => {
   res.status(200).json(res.locals.shortUrl);
 });
 
