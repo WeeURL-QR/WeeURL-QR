@@ -33,13 +33,13 @@ urlController.getUrl = (req, res, next) => {
       // if res good, then just return the shortened
       if (response.rows.length > 0) {
         // return shortened url
-        console.log('already exists, returning shortened url');
+        // console.log('already exists, returning shortened url');
         res.locals.shortUrl = shortUrl;
       }
       // if not, add to database with hashed shortened
       else {
         // now we store both long and short in database
-        console.log('adding to database');
+        // console.log('adding to database');
         const insertUrls = `
         INSERT INTO public."newUrls"
         VALUES ($1, $2)
