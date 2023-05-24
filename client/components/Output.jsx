@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default function Output(newUrl){
+export default function Output({newUrl}){
 
  
     return(
