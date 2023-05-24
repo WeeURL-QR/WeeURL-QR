@@ -23,8 +23,8 @@ function Home() {
             .then((data) => {
                 console.log(data);
                 // we would want to set new url to wee url - qr, no /api
-                setNewUrl('weeurl-qr.com/'+ data);
-                // setNewUrl('localhost:8080/'+ data);
+                // setNewUrl('weeurl-qr.com/'+ data);
+                setNewUrl('localhost:8080/'+ data);
                 // console.log('newUrl: ', newUrl);
             });
     }
