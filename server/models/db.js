@@ -1,5 +1,4 @@
-const { Pool, Client } = require('pg');
-// require('dotenv').config();
+const { Pool } = require('pg');
 // get PG uri from RDS
 // const PG_URI = process.env.PG_URI;
 const PG_URI =
@@ -16,8 +15,6 @@ const pool = new Pool({
 module.exports = {
   query: (text, params, callback) => {
     console.log('executed query to DB');
-    // console.log('executed query to DB, this is the params', params);
-    // console.log('executed query to DB, this is the callback', callback);
     //   this pool.query is specifically to our database
     return pool.query(text, params, callback);
   },
