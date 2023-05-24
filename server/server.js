@@ -12,7 +12,7 @@ app.use(express.urlencoded({ extended: true}));
 app.use(express.static(path.resolve(__dirname, '../client')));
 
 // route handler
-app.use('/api', apiRouter);
+app.use('/', apiRouter);
 
 // catch all route handling for requests to unknown routers
 app.use((req,res) => {
