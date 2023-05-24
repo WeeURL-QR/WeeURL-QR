@@ -15,9 +15,9 @@ urlController.getUrl = (req, res, next) => {
   // deconstruct longurl from req body? unless req body is just the string then we don't need to deconstruct
   const { longUrl } = req.body;
   // console.log('this is the req.body in url controller getUrl', req.body);
-  console.log('this is longUrl', longUrl);
+  // console.log('this is longUrl', longUrl);
   const shortUrl = hashURL(longUrl);
-  console.log('this is short url', shortUrl);
+  // console.log('this is short url', shortUrl);
   // query database
   const urlQuery = `SELECT
       long_url
@@ -58,7 +58,7 @@ urlController.getUrl = (req, res, next) => {
 };
 
 urlController.shortToLong = (req, res, next) => {
-  console.log('req params', req.params);
+  // console.log('req params', req.params);
   const { shortUrl } = req.params;
   const shortUrlQuery = `
     SELECT
@@ -73,7 +73,7 @@ urlController.shortToLong = (req, res, next) => {
   db.query(shortUrlQuery, [shortUrl])
     .then((response) => {
       res.locals.longUrl = response.rows[0]['long_url'];
-      console.log(res.locals.longUrl);
+      // console.log(res.locals.longUrl);
       return next();
     })
     .catch((error) => {
